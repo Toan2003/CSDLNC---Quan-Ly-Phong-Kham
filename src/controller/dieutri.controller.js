@@ -34,6 +34,7 @@ async function getListBDTbyID(req,res){
     })
 }
 
+
 async function getListBDTbyDate(req,res){
     let dateA = req.params.dateA
     let dateB = req.params.dateB
@@ -127,6 +128,21 @@ async function getBDT(req,res){
     )
     let tongquan = result.recordsets[0]
     let chitiet = result.recordsets[1]
+    let chitietrang = result.recordsets[2]
+    let rangdieutri;
+    for (let ldt  in chitiet) {
+        rangdieutri = []
+        for (let x in chitietrang){
+            if (chitietrang[x].MADIEUTRI == chitiet[ldt].MADIEUTRI){
+                let temp = {
+                    TENRANG: chitietrang[x].TENRANG,
+                    MATDIEUTRI: chitietrang[x].MATDIEUTRI,
+                }
+                rangdieutri.push(temp)
+            }
+        }
+        chitiet[ldt].RANGDIEUTRI = rangdieutri
+    }
     //console.log(result.recordsets[0])
     //console.log(result.recordsets[1])
     return res.json({

@@ -16,6 +16,7 @@ app.use(express.json());
 const donthuoc = require('./route/donthuoc.route')
 const dieutri = require('./route/dieutri.route')
 const hosobenhnhan = require('./route/hosobenhnhan.route')
+const hoadon = require ('./route/hoadon.route')
 const lichhen = require('./route/lichhen.route')
 const lichlamviec = require('./route/lichlamviec.route')
 
